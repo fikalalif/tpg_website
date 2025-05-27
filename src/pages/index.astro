@@ -1,0 +1,198 @@
+---
+import "../styles/global.css";
+import SwiperCarousel from '../components/SwiperCarousel.jsx';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class="bg-gray-100 text-center">
+		<nav
+			class="z-[999] border-2 border-[rgba(180,180,180,0.6)] bg-gradient-to-r from-gray-700 via-black to-gray-700 opacity-75 rounded-b-3xl fixed w-full top-0 left-0"
+		>
+			<div class="flex justify-around p-3">
+				<a href="" class="">
+					<img src="tpg_logo.png" class="h-8" alt="/" />
+				</a>
+				<a
+					href="http://localhost:4321/about"
+					class="text-white hover:text-gray-400">ABOUT</a
+				>
+				<a href="#" class="text-white hover:text-gray-400">BRANDS</a>
+				<a href="#" class="text-white hover:text-gray-400">CLIENT</a>
+				<a href="#" class="text-white hover:text-gray-400"
+					>PARTNERSHIP</a
+				>
+				<a href="#" class="text-white hover:text-gray-400">CAREER</a>
+				<a href="#" class="text-white hover:text-gray-400">CONTACT US</a
+				>
+			</div>
+		</nav>
+
+		<main>
+			<div class="relative w-full h-screen">
+				<!-- Gambar Pertama sebagai background -->
+				<img
+					src="bg_top.jpg"
+					alt="Gambar Pertama"
+					class="absolute inset-0 w-full h-full object-cover z-0"
+				/>
+
+				<!-- Gambar Kedua di tengah -->
+				<div
+					class="absolute inset-0 flex justify-center items-center z-10"
+				>
+					<img
+						src="tpg_center.png"
+						alt="Gambar Kedua"
+						class="w-1/5 max-w-md"
+					/>
+				</div>
+			</div>
+
+			<!-- Footer div -->
+			<div class="bg-black text-white px-6 py-10">
+				<!-- Top section -->
+				<div class="flex justify-between items-start mb-24">
+					<!-- Left logo and text -->
+					<div class="flex items-center space-x-4">
+						<img src="tpg-divbot.png" alt="TPG Logo" class="h-12" />
+						<div class="text-left">
+							<p class="font-bold text-lg">TEMPAT</p>
+							<p class="font-bold text-lg">PERADUAN</p>
+							<p class="text-sm">Group</p>
+						</div>
+					</div>
+
+					<!-- Right text -->
+					<div class="text-sm tracking-widest uppercase">
+						Instagram
+					</div>
+				</div>
+			</div>
+
+			<div class="bg-black text-white px-3 py-10">
+				<!-- Bottom section -->
+				<div class="flex justify-between items-center m-11">
+					<!-- Left text -->
+					<h2 class="text-3xl font-bold">Our Brands</h2>
+
+					<!-- Center icon -->
+					<img src="tpg-divbot2.png" alt="Center Icon" class="h-10" />
+
+					<!-- Right logo -->
+					<img src="tpg-divbot.png" alt="TPG Logo" class="h-10" />
+				</div>
+
+				<div
+					class="bg-gray-900 text-white w-full p-4 text-2xl flex justify-around"
+				>
+					<a href="" class="hover:border-t-rose-600">ALL</a>
+					<a href="">F&B</a>
+					<a href="">COFFE SHOP</a>
+					<a href="">ROASTERY</a>
+					<a href="">CATHERING</a>
+					<a href="">FASHION</a>
+					<a href="">CREATIVE</a>
+					<a href="">OTHER</a>
+				</div>
+
+				<SwiperCarousel client:only="react" />
+			</div>
+
+			<div class="bg-white text-black px-3 py-5">
+				<!-- Bottom section -->
+				<div class="flex justify-between items-center m-11">
+					<!-- Left text -->
+					<h2 class="text-3xl font-bold">Our Client</h2>
+
+					<!-- Center icon -->
+					<img
+						src="tpg-divbot2-black.png"
+						alt="Center Icon"
+						class="h-10"
+					/>
+
+					<!-- Right logo -->
+					<img
+						src="tpg-divbot-black.png"
+						alt="TPG Logo"
+						class="h-10"
+					/>
+				</div>
+
+				<div
+					class="bg-gray-900 text-white w-full p-4 text-2xl flex justify-around"
+				>
+					<a href="">ALL</a>
+					<a href="">F&B</a>
+					<a href="">COFFE SHOP</a>
+					<a href="">OTHER</a>
+				</div>
+			</div>
+
+			<footer class="bg-black text-white px-6 py-12">
+				<div
+					class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
+				>
+					<!-- Kiri: Logo & Alamat -->
+					<div class="flex space-x-4">
+						<img src="tpg-divbot2.png" alt="Logo" class="h-14" />
+						<div>
+							<h3 class="font-bold text-lg mb-1">
+								Tempat Peraduan
+							</h3>
+							<p class="text-sm leading-relaxed">
+								Jl. Tentara Pelajar No.15, Slerok,<br />
+								Kec. Tegal Tim., Kota Tegal,<br />
+								Jawa Tengah 52122
+							</p>
+						</div>
+					</div>
+
+					<!-- Tengah: Link Navigasi -->
+					<div>
+						<h3 class="font-bold mb-3">OTHER LINK</h3>
+						<div class="grid grid-cols-2 gap-2 text-sm">
+							<a href="#">About us</a>
+							<a href="#">Career</a>
+							<a href="#">Brands</a>
+							<a href="#">Contact us</a>
+							<a href="#">Partnership</a>
+						</div>
+					</div>
+
+					<!-- Kanan: Kontak dan Sosial -->
+					<div class="space-y-4">
+						<!-- Box kontak -->
+						<div
+							class="bg-gray-300 text-black rounded-xl p-3 text-center font-semibold"
+						>
+							<p>0812-3453-7764</p>
+							<p>0813-9373-1823</p>
+							<div
+								class="bg-gray-800 text-white mt-2 rounded-b-xl py-1"
+							>
+								INFO KEMITRAAN
+							</div>
+						</div>
+
+						<!-- Sosial media -->
+						<div
+							class="flex justify-center space-x-6 text-sm uppercase tracking-wider"
+						>
+							<a href="#">Instagram</a>
+							<a href="#">YouTube</a>
+							<a href="#">X</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</main>
+	</body>
+</html>

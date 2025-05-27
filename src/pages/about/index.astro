@@ -1,0 +1,75 @@
+---
+import "../../styles/global.css";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+    </head>
+    <body>
+        <section class="bg-black text-white px-6 py-16">
+            <div class="max-w-5xl mx-auto space-y-10">
+                <!-- Logo Kecil & Title -->
+                <div class="flex justify-between items-start">
+                    <img src="tpg_logo.png" alt="Logo" class="h-10" />
+                    <p class="text-xs tracking-widest mt-1">
+                        PT TEMPAT PERADUAN Group
+                    </p>
+                </div>
+
+                <!-- About Us -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">About Us</h2>
+                    <p class="text-sm leading-relaxed max-w-3xl">
+                        PT Tempat Peraduan Group merupakan perusahaan yang
+                        bergerak di bidang Food and Beverage. Perusahaan kami
+                        mengelola dan memiliki 21 lini bisnis kuliner dari Kedai
+                        Makanan, Coffee Shop, Penyelenggara Jasa Boga
+                        (Katering), Roast Beans Manufacture, Agency Creative,
+                        hingga Coffee Shop and Eatery Consultant.
+                    </p>
+                </div>
+
+                <!-- TPG & Lini Bisnis -->
+                <div class="space-y-4">
+                    <img src="tpg-divbot.png" alt="TPG Logo" class="h-10" />
+                    <p
+                        class="font-bold text-xl md:text-2xl leading-snug tracking-wide"
+                    >
+                        COFFEE SHOP / ROASTERY / F&amp;B / FASHION <br />
+                        CREATIVE / CLIENT / PARTNERSHIP / FAMILY <br />
+                        OFFICE / NO ART TODAY
+                    </p>
+                </div>
+
+                <!-- Footer Row -->
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-end mt-10"
+                >
+                    <!-- Logo Kiri Bawah -->
+                    <div>
+                        <p class="font-bold text-white">
+                            TEMPAT<br /><span class="font-semibold"
+                                >PERADUAN</span
+                            ><br />Group
+                        </p>
+                    </div>
+
+                    <!-- Sosial Media -->
+                    <div
+                        class="mt-6 md:mt-0 flex space-x-6 text-xs tracking-widest uppercase"
+                    >
+                        <a href="#">Instagram</a>
+                        <a href="#">YouTube</a>
+                        <a href="#">X</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
