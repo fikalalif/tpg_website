@@ -1,199 +1,353 @@
 ---
 import "../styles/global.css";
-import SwiperCarousel from '../components/SwiperCarousel.jsx';
+import SwiperCarousel from "../components/SwiperCarousel.jsx";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{/* Pastikan initial-scale=1.0 ada */}
 		<meta name="generator" content={Astro.generator} />
-		<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		<title>Tempat Peraduan Group</title>
+		<script>
+			// Script untuk toggle menu bisa diletakkan di sini atau di body
+			// Kita akan letakkan di akhir body untuk memastikan elemen DOM sudah ter-load
+		</script>
 	</head>
-	<body class="bg-gray-100 text-center w-full">
+	<body class="bg-black text-center w-full max-w-full overflow-x-hidden">
+		{/* Tambahkan overflow-x-hidden untuk mencegah scroll horizontal */}
 		<nav
 			class="z-[999] border-2 border-[rgba(180,180,180,0.6)] bg-gradient-to-r from-gray-700 via-black to-gray-700 opacity-75 rounded-b-3xl fixed w-full top-0 left-0"
 		>
-			<div class="flex justify-around p-3">
-				<a href="" class="">
-					<img src="tpg_logo.png" class="h-8" alt="/" />
+			<div
+				class="container mx-auto flex justify-between items-center p-4"
+			>
+				{/* Gunakan container dan sesuaikan padding */}
+				<a href="/" class="">
+					{/* Ubah href="" ke "/" untuk homepage */}
+					<img
+						src="tpg_logo.png"
+						class="h-8 sm:h-10"
+						alt="TPG Logo"
+					/>
+					{/* Sedikit lebih besar di sm */}
 				</a>
+
+				{/* Desktop Menu Links */}
+				<div class="hidden md:flex space-x-4 items-center">
+					<a href="/about" class="text-white hover:text-gray-400"
+						>ABOUT</a
+					>
+					<a href="#brands" class="text-white hover:text-gray-400"
+						>BRANDS</a
+					>
+					{/* Gunakan anchor link jika di halaman yang sama */}
+					<a href="#client" class="text-white hover:text-gray-400"
+						>CLIENT</a
+					>
+					{/* Gunakan anchor link */}
+					<a
+						href="#partnership"
+						class="text-white hover:text-gray-400">PARTNERSHIP</a
+					>
+					<a href="#career" class="text-white hover:text-gray-400"
+						>CAREER</a
+					>
+					<a href="#contact" class="text-white hover:text-gray-400"
+						>CONTACT US</a
+					>
+				</div>
+
+				{/* Mobile Menu Button */}
+				<div class="md:hidden">
+					<button
+						id="hamburger-btn"
+						class="text-white focus:outline-none"
+					>
+						<svg
+							class="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16m-7 6h7"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			{/* Mobile Menu (Initially Hidden) */}
+			<div
+				id="mobile-menu"
+				class="hidden md:hidden bg-black bg-opacity-90 rounded-b-2xl"
+			>
 				<a
 					href="/about"
-					class="text-white hover:text-gray-400">ABOUT</a
+					class="block text-white hover:text-gray-400 px-4 py-2"
+					>ABOUT</a
 				>
-				<a href="#" class="text-white hover:text-gray-400">BRANDS</a>
-				<a href="#" class="text-white hover:text-gray-400">CLIENT</a>
-				<a href="#" class="text-white hover:text-gray-400"
+				<a
+					href="#brands"
+					class="block text-white hover:text-gray-400 px-4 py-2"
+					>BRANDS</a
+				>
+				<a
+					href="#client"
+					class="block text-white hover:text-gray-400 px-4 py-2"
+					>CLIENT</a
+				>
+				<a
+					href="#partnership"
+					class="block text-white hover:text-gray-400 px-4 py-2"
 					>PARTNERSHIP</a
 				>
-				<a href="#" class="text-white hover:text-gray-400">CAREER</a>
-				<a href="#" class="text-white hover:text-gray-400">CONTACT US</a
+				<a
+					href="#career"
+					class="block text-white hover:text-gray-400 px-4 py-2"
+					>CAREER</a
+				>
+				<a
+					href="#contact"
+					class="block text-white hover:text-gray-400 px-4 py-2 pb-4"
+					>CONTACT US</a
 				>
 			</div>
 		</nav>
 
-		<main>
+		<main class="pt-16 md:pt-20">
+			{/* Tambahkan padding top untuk memberi ruang bagi fixed navbar */}
 			<div class="relative w-full h-screen">
-				<!-- Gambar Pertama sebagai background -->
 				<img
 					src="bg_top.jpg"
-					alt="Gambar Pertama"
+					alt="Background"
 					class="absolute inset-0 w-full h-full object-cover z-0"
 				/>
-
-				<!-- Gambar Kedua di tengah -->
 				<div
-					class="absolute inset-0 flex justify-center items-center z-10"
+					class="absolute inset-0 flex justify-center items-center z-10 p-4"
 				>
+					{/* Tambah padding untuk layar kecil */}
 					<img
 						src="tpg_center.png"
-						alt="Gambar Kedua"
-						class="w-1/5 max-w-md"
+						alt="Center Image"
+						class="w-3/4 sm:w-2/4 md:w-1/3 lg:w-1/4 xl:w-1/5 max-w-xs sm:max-w-sm md:max-w-md"
 					/>
 				</div>
 			</div>
 
-			<!-- Footer div -->
-			<div class="bg-black text-white px-6 py-10">
-				<!-- Top section -->
-				<div class="flex justify-between items-start mb-24">
-					<!-- Left logo and text -->
-					<div class="flex items-center space-x-4">
-						<img src="tpg-divbot.png" alt="TPG Logo" class="h-12" />
+			{
+				/* Footer div (Section 1) - mungkin bisa dihilangkan jika tidak ada konten spesifik lagi */
+			}
+			<div class="bg-black text-white px-6 py-10" id="partnership">
+				<div class="flex justify-between items-center mb-12 md:mb-24">
+					<div class="flex items-center space-x-3 sm:space-x-4">
+						{/* Sedikit kurangi space-x untuk mobile jika perlu */}
+						<img
+							src="tpg-divbot.png"
+							alt="TPG Logo"
+							class="h-10 sm:h-12"
+						/>
+						{
+							/* Ukuran logo bisa disesuaikan sedikit untuk mobile */
+						}
 						<div class="text-left">
-							<p class="font-bold text-lg">TEMPAT</p>
-							<p class="font-bold text-lg">PERADUAN</p>
-							<p class="text-sm">Group</p>
-						</div>
-					</div>
-
-					<!-- Right text -->
-					<div class="text-sm tracking-widest uppercase">
-						Instagram
-					</div>
-				</div>
-			</div>
-
-			<div class="bg-black text-white px-3 py-10">
-				<!-- Bottom section -->
-				<div class="flex justify-between items-center m-11">
-					<!-- Left text -->
-					<h2 class="text-3xl font-bold">Our Brands</h2>
-
-					<!-- Center icon -->
-					<img src="tpg-divbot2.png" alt="Center Icon" class="h-10" />
-
-					<!-- Right logo -->
-					<img src="tpg-divbot.png" alt="TPG Logo" class="h-10" />
-				</div>
-
-				<div
-					class="bg-gray-900 text-white w-full p-4 text-2xl flex justify-around"
-				>
-					<a href="" class="hover:border-t-rose-600">ALL</a>
-					<a href="">F&B</a>
-					<a href="">COFFE SHOP</a>
-					<a href="">ROASTERY</a>
-					<a href="">CATHERING</a>
-					<a href="">FASHION</a>
-					<a href="">CREATIVE</a>
-					<a href="">OTHER</a>
-				</div>
-
-				<SwiperCarousel client:only="react" />
-			</div>
-
-			<div class="bg-white text-black px-3 py-5">
-				<!-- Bottom section -->
-				<div class="flex justify-between items-center m-11">
-					<!-- Left text -->
-					<h2 class="text-3xl font-bold">Our Client</h2>
-
-					<!-- Center icon -->
-					<img
-						src="tpg-divbot2-black.png"
-						alt="Center Icon"
-						class="h-10"
-					/>
-
-					<!-- Right logo -->
-					<img
-						src="tpg-divbot-black.png"
-						alt="TPG Logo"
-						class="h-10"
-					/>
-				</div>
-
-				<div
-					class="bg-gray-900 text-white w-full p-4 text-2xl flex justify-around"
-				>
-					<a href="">ALL</a>
-					<a href="">F&B</a>
-					<a href="">COFFE SHOP</a>
-					<a href="">OTHER</a>
-				</div>
-			</div>
-
-			<footer class="bg-black text-white px-6 py-12">
-				<div
-					class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
-				>
-					<!-- Kiri: Logo & Alamat -->
-					<div class="flex space-x-4">
-						<img src="tpg-divbot2.png" alt="Logo" class="h-14" />
-						<div>
-							<h3 class="font-bold text-lg mb-1">
-								Tempat Peraduan
-							</h3>
-							<p class="text-sm leading-relaxed">
-								Jl. Tentara Pelajar No.15, Slerok,<br />
-								Kec. Tegal Tim., Kota Tegal,<br />
-								Jawa Tengah 52122
-							</p>
-						</div>
-					</div>
-
-					<!-- Tengah: Link Navigasi -->
-					<div>
-						<h3 class="font-bold mb-3">OTHER LINK</h3>
-						<div class="grid grid-cols-2 gap-2 text-sm">
-							<a href="#">About us</a>
-							<a href="#">Career</a>
-							<a href="#">Brands</a>
-							<a href="#">Contact us</a>
-							<a href="#">Partnership</a>
-						</div>
-					</div>
-
-					<!-- Kanan: Kontak dan Sosial -->
-					<div class="space-y-4">
-						<!-- Box kontak -->
-						<div
-							class="bg-gray-300 text-black rounded-xl p-3 text-center font-semibold"
-						>
-							<p>0812-3453-7764</p>
-							<p>0813-9373-1823</p>
-							<div
-								class="bg-gray-800 text-white mt-2 rounded-b-xl py-1"
+							{/* Pastikan teks rata kiri */}
+							<p
+								class="font-bold text-base sm:text-lg leading-tight"
 							>
-								INFO KEMITRAAN
-							</div>
-						</div>
-
-						<!-- Sosial media -->
-						<div
-							class="flex justify-center space-x-6 text-sm uppercase tracking-wider"
-						>
-							<a href="#">Instagram</a>
-							<a href="#">YouTube</a>
-							<a href="#">X</a>
+								TEMPAT
+							</p>
+							{/* Ukuran font dan leading disesuaikan */}
+							<p
+								class="font-bold text-base sm:text-lg leading-tight"
+							>
+								PERADUAN
+							</p>
+							<p class="text-xs sm:text-sm">Group</p>
 						</div>
 					</div>
+					<div class="text-xs sm:text-sm tracking-widest uppercase">
+						<a
+							href="https://instagram.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="hover:text-gray-400">Instagram</a
+						>
+					</div>
 				</div>
-			</footer>
+			</div>
+
+			<div class="bg-black text-white px-3 py-10" id="brands">
+				<div
+					class="flex flex-col justify-between items-center m-6 gap-4
+               sm:flex-row sm:m-11 sm:gap-0 sm:text-left"
+				>
+					<h2
+						class="text-2xl font-bold order-1
+                   sm:text-3xl sm:order-none"
+					>
+						Our Brands
+					</h2>
+					<img
+						src="tpg-divbot2.png"
+						alt="Center Icon"
+						class="h-8 order-2
+                   sm:h-10 sm:order-none"
+					/>
+					<img
+						src="tpg-divbot.png"
+						alt="TPG Logo"
+						class="h-8 order-3
+                   sm:h-10 sm:order-none"
+					/>
+				</div>
+			</div>
+
+			<div
+				class="bg-gray-900 text-white w-full p-4 text-base sm:text-xl md:text-2xl flex flex-wrap justify-center sm:justify-around gap-2 sm:gap-4"
+			>
+				{/* Beri padding pada link agar mudah diklik di mobile */}
+				<a href="#" class="hover:border-t-rose-600 py-1 px-2">ALL</a>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">F&B</a>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">COFFEE SHOP</a
+				>
+				{/* Koreksi typo: COFFE -> COFFEE */}
+				<a href="#" class="hover:text-gray-400 py-1 px-2">ROASTERY</a>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">CATERING</a>
+				{/* Koreksi typo: CATHERING -> CATERING */}
+				<a href="#" class="hover:text-gray-400 py-1 px-2">FASHION</a>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">CREATIVE</a>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">OTHER</a>
+			</div>
+			<SwiperCarousel client:only="react" />
 		</main>
+
+		<div class="bg-white text-black px-3 py-5" id="client">
+			<div
+				class="flex flex-col sm:flex-row justify-between items-center m-6 sm:m-11 gap-4 sm:gap-0 text-center sm:text-left"
+			>
+				<h2
+					class="text-2xl sm:text-3xl font-bold order-1 sm:order-none"
+				>
+					Our Client
+				</h2>
+				<img
+					src="tpg-divbot2-black.png"
+					alt="Center Icon"
+					class="h-8 sm:h-10 order-2 sm:order-none"
+				/>
+				<img
+					src="tpg-divbot-black.png"
+					alt="TPG Logo"
+					class="h-8 sm:h-10 order-3 sm:order-none"
+				/>
+			</div>
+
+			<div
+				class="bg-gray-900 text-white w-full p-4 text-base sm:text-xl md:text-2xl flex flex-wrap justify-center sm:justify-around gap-2 sm:gap-4"
+			>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">ALL</a>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">F&B</a>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">COFFEE SHOP</a
+				>
+				<a href="#" class="hover:text-gray-400 py-1 px-2">OTHER</a>
+			</div>
+			{
+				/* Anda mungkin ingin menambahkan SwiperCarousel atau list client di sini juga */
+			}
+		</div>
+
+		<footer class="bg-black text-white px-6 py-12" id="contact">
+			<div
+				class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
+			>
+				{/* Kiri: Logo & Alamat */}
+				<div
+					class="flex flex-col items-center md:items-start md:flex-row space-y-4 md:space-y-0 md:space-x-4"
+				>
+					<img src="tpg-divbot2.png" alt="Logo" class="h-14" />
+					<div>
+						<h3 class="font-bold text-lg mb-1">Tempat Peraduan</h3>
+						<p class="text-sm leading-relaxed">
+							Jl. Tentara Pelajar No.15, Slerok,<br />
+							Kec. Tegal Tim., Kota Tegal,<br />
+							Jawa Tengah 52122
+						</p>
+					</div>
+				</div>
+
+				{/* Tengah: Link Navigasi */}
+				<div id="career">
+					{
+						/* Bisa juga buat section career terpisah jika kontennya banyak */
+					}
+					<h3 class="font-bold mb-3">OTHER LINK</h3>
+					<div class="grid grid-cols-2 gap-2 text-sm">
+						<a href="/about" class="hover:text-gray-400">About us</a
+						>
+						<a href="#career" class="hover:text-gray-400">Career</a>
+						{/* Arahkan ke section career */}
+						<a href="#brands" class="hover:text-gray-400">Brands</a>
+						<a href="#contact" class="hover:text-gray-400"
+							>Contact us</a
+						>
+						<a href="#partnership" class="hover:text-gray-400"
+							>Partnership</a
+						>
+					</div>
+				</div>
+
+				{/* Kanan: Kontak dan Sosial */}
+				<div class="space-y-4">
+					<div
+						class="bg-gray-300 text-black rounded-xl p-3 text-center font-semibold max-w-xs mx-auto md:mx-0"
+					>
+						{/* Batasi lebar di mobile */}
+						<p>0812-3453-7764</p>
+						<p>0813-9373-1823</p>
+						<div
+							class="bg-gray-800 text-white mt-2 rounded-b-xl py-1"
+						>
+							INFO KEMITRAAN
+						</div>
+					</div>
+					<div
+						class="flex justify-center space-x-6 text-sm uppercase tracking-wider mt-4"
+					>
+						<a href="#" class="hover:text-gray-400">Instagram</a>
+						<a href="#" class="hover:text-gray-400">YouTube</a>
+						<a href="#" class="hover:text-gray-400">X</a>
+					</div>
+				</div>
+			</div>
+			<div
+				class="text-center text-gray-500 text-sm mt-12 border-t border-gray-700 pt-8"
+			>
+				© {new Date().getFullYear()} Tempat Peraduan Group. All rights reserved.
+			</div>
+		</footer>
 	</body>
+
+	<script>
+		const toggleBtn = document.getElementById("hamburger-btn"); // Ganti nama variabel agar lebih jelas
+		const mobileMenu = document.getElementById("mobile-menu"); // Ganti nama variabel
+
+		if (toggleBtn && mobileMenu) {
+			toggleBtn.addEventListener("click", () => {
+				mobileMenu.classList.toggle("hidden");
+				// Optional: Ganti ikon hamburger ke ikon close (X) saat menu terbuka
+				if (mobileMenu.classList.contains("hidden")) {
+					toggleBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>`;
+				} else {
+					toggleBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+				}
+			});
+		}
+	</script>
 </html>
