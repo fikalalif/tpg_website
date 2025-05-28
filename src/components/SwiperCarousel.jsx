@@ -8,7 +8,10 @@ import 'swiper/css/effect-coverflow';
 const items = [
   { img: "/eleventh-carousel.png", alt: "Logo 1" },
   { img: "/peraduan-carousel.png", alt: "Logo 2" },
-  { img: "/njajan-carousel.png", alt: "Logo 3" }
+  { img: "/njajan-carousel.png", alt: "Logo 3" },
+  { img: "/socialdilema-carousel.png", alt: "Logo 4" },
+  { img: "/l2katering-carousel.png", alt: "Logo 5" },
+  { img: "/belumtidur-carousel.png", alt: "Logo 6" }
 ];
 
 export default function SwiperCarousel() {
