@@ -19,20 +19,20 @@ import SwiperCarousel from "../components/SwiperCarousel.jsx";
 	<body class="bg-black text-center w-full max-w-full overflow-x-hidden">
 		{/* Tambahkan overflow-x-hidden untuk mencegah scroll horizontal */}
 		<nav
-			class="z-[999] border-2 border-[rgba(180,180,180,0.6)] bg-gradient-to-r from-gray-700 via-black to-gray-700 opacity-75 rounded-b-3xl fixed w-full top-0 left-0"
+			class="z-[999] border-2 border-[rgba(180,180,180,0.6)] bg-gradient-to-r from-gray-800 via-black to-gray-800 opacity-85 rounded-b-3xl fixed w-full top-0 left-0 text-xl"
 		>
 			<div
 				class="container mx-auto flex justify-between items-center p-4"
 			>
 				{/* Gunakan container dan sesuaikan padding */}
 				<a href="/" class="">
-					{/* Ubah href="" ke "/" untuk homepage */}
+					
 					<img
 						src="tpg_logo.png"
-						class="h-8 sm:h-10"
+						class="h-10 w-auto sm:h-12"
 						alt="TPG Logo"
 					/>
-					{/* Sedikit lebih besar di sm */}
+					
 				</a>
 
 				{/* Desktop Menu Links */}
@@ -144,7 +144,7 @@ import SwiperCarousel from "../components/SwiperCarousel.jsx";
 			{
 				/* Footer div (Section 1) - mungkin bisa dihilangkan jika tidak ada konten spesifik lagi */
 			}
-			<div class="bg-black text-white px-6 py-10" id="partnership">
+			<!-- <div class="bg-black text-white px-6 py-10" id="partnership">
 				<div class="flex justify-between items-center mb-12 md:mb-24">
 					<div class="flex items-center space-x-3 sm:space-x-4">
 						{/* Sedikit kurangi space-x untuk mobile jika perlu */}
@@ -181,9 +181,9 @@ import SwiperCarousel from "../components/SwiperCarousel.jsx";
 						>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="bg-black text-white px-3 py-10" id="brands">
+			<div class="bg-gradient-to-b from-black via-black to-white text-white px-3 py-10" id="brands">
 				<div
 					class="flex flex-col justify-between items-center m-6 gap-4
                sm:flex-row sm:m-11 sm:gap-0 sm:text-left"
@@ -207,61 +207,116 @@ import SwiperCarousel from "../components/SwiperCarousel.jsx";
                    sm:h-10 sm:order-none"
 					/>
 				</div>
+				<div
+					class="bg-gray-900 text-white w-full p-4 text-base sm:text-xl md:text-2xl flex flex-wrap justify-center sm:justify-around gap-2 sm:gap-4"
+				>
+					{/* Beri padding pada link agar mudah diklik di mobile */}
+					<a href="#" class="hover:border-t-rose-600 py-1 px-2">ALL</a
+					>
+					<a href="#" class="hover:text-gray-400 py-1 px-2">F&B</a>
+					<a href="#" class="hover:text-gray-400 py-1 px-2"
+						>COFFEE SHOP</a
+					>
+					{/* Koreksi typo: COFFE -> COFFEE */}
+					<a href="#" class="hover:text-gray-400 py-1 px-2"
+						>ROASTERY</a
+					>
+					<a href="#" class="hover:text-gray-400 py-1 px-2"
+						>CATERING</a
+					>
+					{/* Koreksi typo: CATHERING -> CATERING */}
+					<a href="#" class="hover:text-gray-400 py-1 px-2">FASHION</a
+					>
+					<a href="#" class="hover:text-gray-400 py-1 px-2"
+						>CREATIVE</a
+					>
+					<a href="#" class="hover:text-gray-400 py-1 px-2">OTHER</a>
+				</div>
+				<SwiperCarousel client:only="react" />
 			</div>
 
 			<div
-				class="bg-gray-900 text-white w-full p-4 text-base sm:text-xl md:text-2xl flex flex-wrap justify-center sm:justify-around gap-2 sm:gap-4"
+				class="bg-gradient-to-t from-black to-white text-black px-3 py-5"
+				id="client"
 			>
-				{/* Beri padding pada link agar mudah diklik di mobile */}
-				<a href="#" class="hover:border-t-rose-600 py-1 px-2">ALL</a>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">F&B</a>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">COFFEE SHOP</a
+				<div
+					class="flex flex-col sm:flex-row justify-between items-center m-6 sm:m-11 gap-4 sm:gap-0 text-center sm:text-left"
 				>
-				{/* Koreksi typo: COFFE -> COFFEE */}
-				<a href="#" class="hover:text-gray-400 py-1 px-2">ROASTERY</a>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">CATERING</a>
-				{/* Koreksi typo: CATHERING -> CATERING */}
-				<a href="#" class="hover:text-gray-400 py-1 px-2">FASHION</a>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">CREATIVE</a>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">OTHER</a>
+					<h2
+						class="text-2xl sm:text-3xl font-bold order-1 sm:order-none"
+					>
+						Our Client
+					</h2>
+					<img
+						src="tpg-divbot2-black.png"
+						alt="Center Icon"
+						class="h-8 sm:h-10 order-2 sm:order-none"
+					/>
+					<img
+						src="tpg-divbot-black.png"
+						alt="TPG Logo"
+						class="h-8 sm:h-10 order-3 sm:order-none"
+					/>
+				</div>
+
+				<div
+					class="bg-gray-900 text-white w-full p-4 text-base sm:text-xl md:text-2xl flex flex-wrap justify-center sm:justify-around gap-2 sm:gap-4"
+				>
+					<a href="#" class="hover:text-gray-400 py-1 px-2">ALL</a>
+					<a href="#" class="hover:text-gray-400 py-1 px-2">F&B</a>
+					<a href="#" class="hover:text-gray-400 py-1 px-2"
+						>COFFEE SHOP</a
+					>
+					<a href="#" class="hover:text-gray-400 py-1 px-2">OTHER</a>
+				</div>
+
+				<div class="container mx-auto px-4 py-16">
+					<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+						<img
+							src="UPALA.png"
+							alt="Brand Logo 1"
+							class="w-full h-auto"
+						/>
+						<img
+							src="UPALA.png"
+							alt="Brand Logo 1"
+							class="w-full h-auto"
+						/>
+						<img
+							src="UPALA.png"
+							alt="Brand Logo 1"
+							class="w-full h-auto"
+						/>
+						<img
+							src="UPALA.png"
+							alt="Brand Logo 1"
+							class="w-full h-auto"
+						/>
+						<img
+							src="UPALA.png"
+							alt="Brand Logo 1"
+							class="w-full h-auto"
+						/>
+						<img
+							src="UPALA.png"
+							alt="Brand Logo 1"
+							class="w-full h-auto"
+						/>
+						<img
+							src="UPALA.png"
+							alt="Brand Logo 1"
+							class="w-full h-auto"
+						/>
+						<img
+							src="UPALA.png"
+							alt="Brand Logo 1"
+							class="w-full h-auto"
+						/>
+						
+					</div>
+				</div>
 			</div>
-			<SwiperCarousel client:only="react" />
 		</main>
-
-		<div class="bg-white text-black px-3 py-5" id="client">
-			<div
-				class="flex flex-col sm:flex-row justify-between items-center m-6 sm:m-11 gap-4 sm:gap-0 text-center sm:text-left"
-			>
-				<h2
-					class="text-2xl sm:text-3xl font-bold order-1 sm:order-none"
-				>
-					Our Client
-				</h2>
-				<img
-					src="tpg-divbot2-black.png"
-					alt="Center Icon"
-					class="h-8 sm:h-10 order-2 sm:order-none"
-				/>
-				<img
-					src="tpg-divbot-black.png"
-					alt="TPG Logo"
-					class="h-8 sm:h-10 order-3 sm:order-none"
-				/>
-			</div>
-
-			<div
-				class="bg-gray-900 text-white w-full p-4 text-base sm:text-xl md:text-2xl flex flex-wrap justify-center sm:justify-around gap-2 sm:gap-4"
-			>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">ALL</a>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">F&B</a>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">COFFEE SHOP</a
-				>
-				<a href="#" class="hover:text-gray-400 py-1 px-2">OTHER</a>
-			</div>
-			{
-				/* Anda mungkin ingin menambahkan SwiperCarousel atau list client di sini juga */
-			}
-		</div>
 
 		<footer class="bg-black text-white px-6 py-12" id="contact">
 			<div
