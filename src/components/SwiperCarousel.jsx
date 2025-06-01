@@ -4,6 +4,7 @@ import { Navigation, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
+import '../styles/global.css';
 // Import CSS untuk Swiper kustom (jika Anda akan menambahkan lebih banyak gaya)
 
 const items = [
@@ -17,7 +18,7 @@ const items = [
 
 export default function SwiperCarousel() {
     // Gunakan useState dan useEffect untuk memastikan window.innerWidth diakses setelah komponen ter-mount
-    const [slidesPerView, setSlidesPerView] = React.useState(1);
+    const [slidesPerView, setSlidesPerView] = React.useState(5);
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -59,11 +60,13 @@ export default function SwiperCarousel() {
                     <SwiperSlide key={idx}>
                         <div
                             className="swiper-slide-content" // Tambahkan kelas untuk styling hover
+                            class=" transition duration-500 hover:scale-125 py-20 pt-24"
                             style={{
                                 borderRadius: '1rem',
                                 overflow: 'hidden',
                                 cursor: item.instagramUrl ? 'pointer' : 'default', // Ubah kursor jika ada URL
                                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out', // Transisi untuk hover
+                            
                             }}
                             onClick={() => handleImageClick(item.instagramUrl)}
                         >
