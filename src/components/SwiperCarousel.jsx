@@ -60,7 +60,7 @@ export default function SwiperCarousel() {
                     <SwiperSlide key={idx}>
                         <div
                             className="swiper-slide-content" // Tambahkan kelas untuk styling hover
-                            class=" transition duration-500 hover:scale-125 py-16 pt-20"
+                            class=" transition duration-500 hover:scale-105 py-16 pt-20 lg:hover:scale-110"
                             style={{
                                 borderRadius: '1rem',
                                 overflow: 'hidden',
