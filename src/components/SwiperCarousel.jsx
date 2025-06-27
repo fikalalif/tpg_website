@@ -36,7 +36,7 @@ export default function SwiperCarousel() {
 
   useEffect(() => {
     const handleResize = () => {
-      setSlidesPerView(window.innerWidth < 768 ? 1 : 3);
+      setSlidesPerView(window.innerWidth < 7 ? 1 : 3);
     };
     window.addEventListener('resize', handleResize);
     handleResize();
@@ -53,16 +53,16 @@ export default function SwiperCarousel() {
   const label = categoryLabelMap[currentCategory] || currentCategory;
 
   return (
-    <div className="bg-gradient-to-b from-black via-black to-white text-white px-1 py-10" id="brands">
+    <div className="bg-gradient-to-b from-black via-neutral-900 to-white text-white px-1 pt-10" id="brands">
       {/* Header */}
       <div className="flex justify-between items-center m-6 gap-3 sm:flex-row sm:m-11 sm:gap-0 sm:text-left">
         <h2 className="text-2xl font-bold order-1 sm:text-3xl sm:order-none">Our Brands</h2>
-        <img src="tpg-divbot2.png" alt="Center Icon" className="h-8 order-2 sm:h-10 sm:order-none" />
+        <img src="tpg-divbot.png" alt="Center Icon" className="h-8 order-2 sm:h-10 sm:order-none" />
       </div>
 
       {/* Kategori dinamis di atas carousel */}
-      <div className="flex justify-center mt-6">
-        <div className="px-4 py-1 bg-white text-black text-xs sm:text-sm font-bold rounded-full shadow-md">
+      <div className="flex justify-center mt-6 pt-2">
+        <div className="px-4 py-3 bg-white text-black text-xs sm:text-sm font-bold rounded-full shadow-md">
           {label}
         </div>
       </div>
