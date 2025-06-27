@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import SwiperCarousel from "../components/SwiperCarousel.jsx";
+import SwiperCarouselClient from "../components/SwiperCarouselClient.jsx";
 ---
 
 <html lang="en">
@@ -241,89 +242,11 @@ import SwiperCarousel from "../components/SwiperCarousel.jsx";
 			<div>
 				<SwiperCarousel client:only="react" />
 			</div>
-
-			<div
-				class="bg-gradient-to-t from-black to-white text-black px-1 pb-5 pt-2"
-				id="client"
-			>
-				<div
-					class="flex sm:flex-row justify-between items-center m-6 sm:m-11 gap-4 sm:gap-0 text-center sm:text-left"
-				>
-					<h2
-						class="text-2xl sm:text-3xl font-bold order-1 sm:order-none"
-		
-					>
-						Our Client
-					</h2>
-					<img
-						src="tpg-divbot2-black.png"
-						alt="Center Icon"
-						class="h-8 sm:h-10 order-2 sm:order-none"
-					/>
-					<!-- <img
-						src="tpg-divbot-black.png"
-						alt="TPG Logo"
-						class="h-8 sm:h-10 order-3 sm:order-none"
-					/> -->
-				</div>
-
-				<div
-					class="bg-gray-900 text-white w-full p-4 text-base sm:text-xl md:text-2xl flex flex-wrap justify-center sm:justify-around gap-2 sm:gap-4"
-				>
-					<a href="#" class="hover:text-gray-400 py-1 px-2">ALL</a>
-					<a href="#" class="hover:text-gray-400 py-1 px-2">F&B</a>
-					<a href="#" class="hover:text-gray-400 py-1 px-2"
-						>COFFEE SHOP</a
-					>
-					<a href="#" class="hover:text-gray-400 py-1 px-2">OTHER</a>
-				</div>
-
-				<div class="container mx-auto px-4 py-16">
-					<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-						<img
-							src="UPALA.png"
-							alt="Brand Logo 1"
-							class="w-full h-auto"
-						/>
-						<img
-							src="UPALA.png"
-							alt="Brand Logo 1"
-							class="w-full h-auto"
-						/>
-						<img
-							src="UPALA.png"
-							alt="Brand Logo 1"
-							class="w-full h-auto"
-						/>
-						<img
-							src="UPALA.png"
-							alt="Brand Logo 1"
-							class="w-full h-auto"
-						/>
-						<img
-							src="UPALA.png"
-							alt="Brand Logo 1"
-							class="w-full h-auto"
-						/>
-						<img
-							src="UPALA.png"
-							alt="Brand Logo 1"
-							class="w-full h-auto"
-						/>
-						<img
-							src="UPALA.png"
-							alt="Brand Logo 1"
-							class="w-full h-auto"
-						/>
-						<img
-							src="UPALA.png"
-							alt="Brand Logo 1"
-							class="w-full h-auto"
-						/>
-						
-					</div>
-				</div>
+			<div>
+				<SwiperCarouselClient client:only="react" />
 			</div>
+
+			
 		</main>
 
 		<footer class="bg-black text-white px-6 py-12" id="contact">
