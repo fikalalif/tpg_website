@@ -7,17 +7,8 @@ import 'swiper/css/effect-coverflow';
 import '../styles/global.css';
 
 const items = [
-  { img: "/Eleventh Hour.png", alt: "Logo 1", instagramUrl: "https://www.instagram.com/11throastery/", category: "ROASTERY" },
-  { img: "/TP.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/tempatperaduan/", category: "COFFEE SHOP" },
-  { img: "/Njajan.png", alt: "Logo 3", instagramUrl: "https://www.instagram.com/njajan.co/", category: "F&B" },
-  { img: "/Social Dilemma.png", alt: "Logo 4", instagramUrl: "https://www.instagram.com/scldilemma/", category: "CREATIVE" },
-  { img: "/Langsung Lahap.png", alt: "Logo 5", instagramUrl: "https://www.instagram.com/l2katering/", category: "CATERING" },
-  { img: "/Jet- Li.png", alt: "Logo 6", instagramUrl: "https://www.instagram.com/taichanjetli/", category: "F&B" },
-  { img: "/BOC.png", alt: "Logo 7", instagramUrl: "https://maps.app.goo.gl/aPAsxRJAZ3r5P9Av7", category: "COFFEE SHOP" },
-  { img: "/Pribumie.png", alt: "Logo 8", instagramUrl: "https://www.instagram.com/njajan.co/", category: "F&B" },
-  { img: "/Rakjat Sipil.png", alt: "Logo 9", instagramUrl: "https://maps.app.goo.gl/o7SxJGmtkPUBvjZX9", category: "COFFEE SHOP" },
-  { img: "/Wartap.png", alt: "Logo 10", instagramUrl: "https://www.instagram.com/46wartap/", category: "F&B" },
-  { img: "/Wrkoplo.png", alt: "Logo 11", instagramUrl: "https://www.instagram.com/wrkoplo/", category: "COFFEE SHOP" }
+  { img: "/Upala.png", alt: "Logo 1", instagramUrl: "https://www.instagram.com/upalacoffee/", category: "COFFEE SHOP" },
+  { img: "/Ola.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
 ];
 
 const categoryLabelMap = {
