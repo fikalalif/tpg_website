@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, EffectCoverflow } from 'swiper/modules';
+import { Navigation, EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
-import '../styles/global.css';
+import 'swiper/css/autoplay';
 
 const items = [
   { img: "/Eleventh Hour.png", alt: "Logo 1", instagramUrl: "https://www.instagram.com/11throastery/", category: "ROASTERY" },
@@ -31,17 +33,7 @@ const categoryLabelMap = {
 };
 
 export default function SwiperCarousel() {
-  const [slidesPerView, setSlidesPerView] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSlidesPerView(window.innerWidth < 7 ? 1 : 3);
-    };
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const handleImageClick = (url) => {
     if (url) {
@@ -60,7 +52,7 @@ export default function SwiperCarousel() {
         <img src="tpg-divbot.png" alt="Center Icon" className="h-8 order-2 sm:h-10 sm:order-none" />
       </div>
 
-      {/* Kategori dinamis di atas carousel */}
+      {/* Kategori dinamis */}
       <div className="flex justify-center mt-6 pt-2">
         <div className="px-4 py-3 bg-white text-black text-xs sm:text-sm font-bold rounded-full shadow-md">
           {label}
@@ -68,15 +60,19 @@ export default function SwiperCarousel() {
       </div>
 
       {/* Carousel */}
-      <div style={{ padding: '2rem 0' }}>
+      <div className="py-8">
         <Swiper
-          modules={[Navigation, EffectCoverflow]}
+          modules={[Navigation, EffectCoverflow, Autoplay]}
           navigation
           loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           effect="coverflow"
           grabCursor
           centeredSlides
-          slidesPerView={slidesPerView}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -84,9 +80,13 @@ export default function SwiperCarousel() {
             modifier: 2.5,
             slideShadows: false,
           }}
-          className="mySwiper"
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
           onSlideChange={(swiper) => {
-            const realIndex = swiper.realIndex; // supaya looping tetap benar
+            const realIndex = swiper.realIndex;
             setActiveIndex(realIndex);
           }}
         >
@@ -108,6 +108,32 @@ export default function SwiperCarousel() {
           ))}
         </Swiper>
       </div>
+
+      {/* Custom Swiper navigation style */}
+      <style jsx global>{`
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: white !important;
+          transition: transform 0.3s ease;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+          transform: scale(1.3);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 50px;
+        }
+
+        @media (max-width: 768px) {
+          .swiper-button-next,
+          .swiper-button-prev {
+            top: 55%;
+          }
+        }
+      `}</style>
     </div>
   );
 }

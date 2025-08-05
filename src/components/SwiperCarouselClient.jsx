@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+
+
+"use client";
+
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, EffectCoverflow } from 'swiper/modules';
+import { Navigation, EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
-import '../styles/global.css';
+import 'swiper/css/autoplay';
 
 const items = [
   { img: "/UPALA.png", alt: "Logo 1", instagramUrl: "https://www.instagram.com/upalacoffee/", category: "COFFEE SHOP" },
@@ -25,17 +29,7 @@ const categoryLabelMap = {
 };
 
 export default function SwiperCarousel() {
-  const [slidesPerView, setSlidesPerView] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSlidesPerView(window.innerWidth < 7 ? 1 : 3);
-    };
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const handleImageClick = (url) => {
     if (url) {
@@ -47,14 +41,14 @@ export default function SwiperCarousel() {
   const label = categoryLabelMap[currentCategory] || currentCategory;
 
   return (
-    <div className="bg-gradient-to-t from-black  via-neutral-700 to-white text-black px-1 py-4" id="client">
+    <div className="bg-gradient-to-b from-white via-neutral-900 to-black text-black px-1 pt-10" id="client">
       {/* Header */}
       <div className="flex justify-between items-center m-6 gap-3 sm:flex-row sm:m-11 sm:gap-0 sm:text-left">
-        <h2 className="text-2xl font-bold order-1 sm:text-3xl sm:order-none">Our Client</h2>
+        <h2 className="text-2xl font-bold order-1 sm:text-3xl sm:order-none">Our Brands</h2>
         <img src="tpg-divbot-black.png" alt="Center Icon" className="h-8 order-2 sm:h-10 sm:order-none" />
       </div>
 
-      {/* Kategori dinamis di atas carousel */}
+      {/* Kategori dinamis */}
       <div className="flex justify-center mt-6 pt-2">
         <div className="px-4 py-3 bg-black text-white text-xs sm:text-sm font-bold rounded-full shadow-md">
           {label}
@@ -62,15 +56,19 @@ export default function SwiperCarousel() {
       </div>
 
       {/* Carousel */}
-      <div style={{ padding: '2rem 0' }}>
+      <div className="py-8">
         <Swiper
-          modules={[Navigation, EffectCoverflow]}
+          modules={[Navigation, EffectCoverflow, Autoplay]}
           navigation
           loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           effect="coverflow"
           grabCursor
           centeredSlides
-          slidesPerView={slidesPerView}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -78,9 +76,13 @@ export default function SwiperCarousel() {
             modifier: 2.5,
             slideShadows: false,
           }}
-          className="mySwiper"
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
           onSlideChange={(swiper) => {
-            const realIndex = swiper.realIndex; // supaya looping tetap benar
+            const realIndex = swiper.realIndex;
             setActiveIndex(realIndex);
           }}
         >
@@ -102,6 +104,32 @@ export default function SwiperCarousel() {
           ))}
         </Swiper>
       </div>
+
+      {/* Custom Swiper navigation style */}
+      <style jsx global>{`
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: white !important;
+          transition: transform 0.3s ease;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+          transform: scale(1.3);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 50px;
+        }
+
+        @media (max-width: 768px) {
+          .swiper-button-next,
+          .swiper-button-prev {
+            top: 55%;
+          }
+        }
+      `}</style>
     </div>
   );
 }

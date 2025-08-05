@@ -1,8 +1,13 @@
 ---
 import SwiperCarousel from "./SwiperCarousel"
 import SwiperCarouselClient from "./SwiperCarouselClient"
+import Navbar from "./Navbar.astro"
+import Footer from "./Footer.astro"
 ---
 
+<nav>
+    <Navbar/>
+</nav>
 
 <main class="pt-1 md:pt-1">
       {/* Tambahkan padding top untuk memberi ruang bagi fixed navbar */}
@@ -29,3 +34,7 @@ import SwiperCarouselClient from "./SwiperCarouselClient"
         <SwiperCarouselClient client:only="react" />
       </div>
 </main>
+
+<footer>
+    <Footer/>
+</footer>
