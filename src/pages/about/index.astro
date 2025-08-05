@@ -3,143 +3,157 @@ import "../../styles/global.css";
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
-    </head>
-    <body class="bg-black">
-        <section class="bg-black text-white px-6 py-16">
-            <div class="max-w-5xl mx-auto space-y-10">
-                <!-- Logo Kecil & Title -->
-                <div class="flex justify-between items-start">
-                    <a href="/"><img src="tpg_logo.png" alt="Logo" class="h-10" /></a>
-                    
-                    <p class="text-xs tracking-widest mt-1">
-                        PT TEMPAT PERADUAN Group
-                    </p>
-                </div>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+    <style>
+      /* Animasi Fade-in untuk seluruh konten */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-                <!-- About Us -->
-                <div>
-                    <h2 class="text-3xl font-bold mb-4">About Us</h2>
-                    <p class="text-sm leading-relaxed max-w-3xl">
-                        PT Tempat Peraduan Group merupakan perusahaan yang
-                        bergerak di bidang Food and Beverage. Perusahaan kami
-                        mengelola dan memiliki 21 lini bisnis kuliner dari Kedai
-                        Makanan, Coffee Shop, Penyelenggara Jasa Boga
-                        (Katering), Roast Beans Manufacture, Agency Creative,
-                        hingga Coffee Shop and Eatery Consultant.
-                    </p>
-                </div>
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="bg-black">
+    <section class="bg-black text-white px-6 py-16 animate-fade-in">
+      <div class="max-w-5xl mx-auto space-y-10">
+        <!-- Logo Kecil & Title -->
+        <div class="flex justify-between items-start">
+          <a href="/">
+            <img src="/tpg_logo.png" alt="Logo" class="h-10" />
+          </a>
+          <p class="text-xs tracking-widest mt-1">PT TEMPAT PERADUAN Group</p>
+        </div>
 
-                <div
-                    class="text-center text-2xl font-semibold italic py-6"
-                >
-                    “ BERGERAK ATAU TERGANTIKAN ”
-                </div>
+        <!-- About Us -->
+        <div>
+          <h2 class="text-3xl font-bold mb-4">About Us</h2>
+          <p class="text-sm leading-relaxed max-w-3xl">
+            PT Tempat Peraduan Group merupakan perusahaan yang bergerak di
+            bidang Food and Beverage. Perusahaan kami mengelola dan memiliki
+            21 lini bisnis kuliner dari Kedai Makanan, Coffee Shop,
+            Penyelenggara Jasa Boga (Katering), Roast Beans Manufacture,
+            Agency Creative, hingga Coffee Shop and Eatery Consultant.
+          </p>
+        </div>
 
-                <div>
-                    <h2 class="text-3xl font-bold mb-4">Visi</h2>
-                    <p class="text-sm leading-relaxed max-w-3xl">
-                        Menjadi Perusahaan Food and Beverage yang menguasai
-                        sektor hulu hingga hilir, dan membawa perubahan baik
-                        bagi peradaban, serta mampu bersaing di pasar global
-                    </p>
-                </div>
+        <div class="text-center text-2xl font-semibold italic py-6">
+          “ BERGERAK ATAU TERGANTIKAN ”
+        </div>
 
-                <div>
-                    <h2 class="text-3xl font-bold mb-4">Misi</h2>
-                    <p class="text-sm leading-relaxed max-w-3xl">
-                        Menjadi Perusahaan yang kompeten untuk mengelola
-                        berbagai macam lini bisnis di sektor Food and Beverage.
-                        Memiliki sumber daya manusia generalis & spesialis yang
-                        berkualitas unggul
-                    </p>
-                </div>
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Visi</h2>
+          <p class="text-sm leading-relaxed max-w-3xl">
+            Menjadi Perusahaan Food and Beverage yang menguasai sektor hulu
+            hingga hilir, dan membawa perubahan baik bagi peradaban, serta
+            mampu bersaing di pasar global
+          </p>
+        </div>
 
-                <!-- TPG & Lini Bisnis -->
-                <div class="space-y-4">
-                    <img src="tpg-divbot.png" alt="TPG Logo" class="h-10" />
-                    <div
-                        class="font-bold text-xl md:text-2xl leading-snug tracking-wide"
-                    >
-                        <a
-                            href="https://www.instagram.com/tempatperaduan/"
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >COFFEE SHOP</a
-                        > /
-                        <a
-                            href="https://www.instagram.com/11throastery/"
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >ROASTERY</a
-                        > /
-                        <a
-                            href="https://www.instagram.com/l2katering/"
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >F&B</a
-                        > /
-                        <a
-                            href="https://www.instagram.com/scldilemma/"
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >FASHION</a
-                        >
-                        <br />
-                        <a
-                            href="https://www.instagram.com/belumtidurcreative/"
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >CREATIVE</a
-                        > /
-                        <a
-                            href="/#client"
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >CLIENT</a
-                        > /
-                        <a
-                            href=""
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >PARTNERSHIP</a
-                        > /
-                        <a
-                            href="/#brands"
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >FAMILY</a
-                        >
-                        <br />
-                        <a
-                            href="https://maps.app.goo.gl/QxTuL5WzA5mRw1939"
-                            class="text-white hover:text-blue-600 transition-colors duration-300"
-                            >OFFICE</a
-                        > / NO ART TODAY
-                    </div>
-                </div>
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Misi</h2>
+          <p class="text-sm leading-relaxed max-w-3xl">
+            Menjadi Perusahaan yang kompeten untuk mengelola berbagai macam
+            lini bisnis di sektor Food and Beverage. Memiliki sumber daya
+            manusia generalis & spesialis yang berkualitas unggul
+          </p>
+        </div>
 
-                <!-- Footer Row -->
-                <div
-                    class="flex flex-col md:flex-row justify-between items-start md:items-end mt-10"
-                >
-                    <!-- Logo Kiri Bawah -->
-                    <div>
-                        <p class="font-bold text-white">
-                            TEMPAT<br /><span class="font-semibold"
-                                >PERADUAN</span
-                            ><br />Group
-                        </p>
-                    </div>
+        <!-- TPG & Lini Bisnis -->
+        <div class="space-y-4">
+          <img src="/tpg-divbot.png" alt="TPG Logo" class="h-10" />
+          <div class="font-bold text-xl md:text-2xl leading-snug tracking-wide">
+            <a
+              href="https://www.instagram.com/tempatperaduan/"
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >COFFEE SHOP</a
+            >
+            /
+            <a
+              href="https://www.instagram.com/11throastery/"
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >ROASTERY</a
+            >
+            /
+            <a
+              href="https://www.instagram.com/l2katering/"
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >F&B</a
+            >
+            /
+            <a
+              href="https://www.instagram.com/scldilemma/"
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >FASHION</a
+            ><br />
+            <a
+              href="https://www.instagram.com/belumtidurcreative/"
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >CREATIVE</a
+            >
+            /
+            <a
+              href="/#client"
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >CLIENT</a
+            >
+            /
+            <a
+              href=""
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >PARTNERSHIP</a
+            >
+            /
+            <a
+              href="/#brands"
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >FAMILY</a
+            ><br />
+            <a
+              href="https://maps.app.goo.gl/QxTuL5WzA5mRw1939"
+              class="text-white hover:text-blue-600 transition-colors duration-300"
+              >OFFICE</a
+            >
+            / NO ART TODAY
+          </div>
+        </div>
 
-                    <!-- Sosial Media -->
-                    <div
-                        class="mt-6 md:mt-0 flex space-x-6 text-xs tracking-widest uppercase"
-                    >
-                        <a href="https://www.instagram.com/peraduangroup/">Instagram</a>
-                        <a href="https://www.youtube.com/@tempatperaduan7822">YouTube</a>
-                        <a href="https://x.com/tempatperaduan">X</a>
-                        <a href="/#contact">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
+        <!-- Footer Row -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-end mt-10"
+        >
+          <!-- Logo Kiri Bawah -->
+          <div>
+            <p class="font-bold text-white">
+              TEMPAT<br /><span class="font-semibold">PERADUAN</span
+              ><br />Group
+            </p>
+          </div>
+
+          <!-- Sosial Media -->
+          <div
+            class="mt-6 md:mt-0 flex space-x-6 text-xs tracking-widest uppercase"
+          >
+            <a href="https://www.instagram.com/peraduangroup/">Instagram</a>
+            <a href="https://www.youtube.com/@tempatperaduan7822">YouTube</a>
+            <a href="https://x.com/tempatperaduan">X</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
