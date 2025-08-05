@@ -7,8 +7,11 @@ import 'swiper/css/effect-coverflow';
 import '../styles/global.css';
 
 const items = [
-  { img: "/Upala.png", alt: "Logo 1", instagramUrl: "https://www.instagram.com/upalacoffee/", category: "COFFEE SHOP" },
+  { img: "/UPALA.png", alt: "Logo 1", instagramUrl: "https://www.instagram.com/upalacoffee/", category: "COFFEE SHOP" },
   { img: "/Ola.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
+  { img: "/UPALA.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
+  { img: "/Ola.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
+  { img: "/UPALA.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
 ];
 
 const categoryLabelMap = {

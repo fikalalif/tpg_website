@@ -1,0 +1,73 @@
+<nav
+      class="z-[999] border-2 border-[rgba(180,180,180,0.6)] bg-gradient-to-r from-zinc-600 via-black to-zinc-600 opacity-85 rounded-b-3xl fixed w-full top-0 left-0 text-xl"
+    >
+      <div class="container mx-auto flex justify-between items-center p-4">
+        {/* Gunakan container dan sesuaikan padding */}
+        <a href="/" class="">
+          <img src="tpg_logo.png" class="h-10 w-auto sm:h-12" alt="TPG Logo" />
+        </a>
+
+        {/* Desktop Menu Links */}
+        <div class="hidden md:flex space-x-4 items-center">
+          <a href="/about" class="text-white hover:text-gray-400">ABOUT</a>
+          <a href="#brands" class="text-white hover:text-gray-400">BRANDS</a>
+          {/* Gunakan anchor link jika di halaman yang sama */}
+          <a href="#client" class="text-white hover:text-gray-400">CLIENT</a>
+          {/* Gunakan anchor link */}
+          <a href="#partnership" class="text-white hover:text-gray-400"
+            >PARTNERSHIP</a
+          >
+          <a href="#career" class="text-white hover:text-gray-400">CAREER</a>
+          <a href="#contact" class="text-white hover:text-gray-400"
+            >CONTACT US</a
+          >
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div class="md:hidden">
+          <button id="hamburger-btn" class="text-white focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu (Initially Hidden) */}
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-black bg-opacity-90 rounded-b-2xl"
+      >
+        <a href="/about" class="block text-white hover:text-gray-400 px-4 py-2"
+          >ABOUT</a
+        >
+        <a href="#brands" class="block text-white hover:text-gray-400 px-4 py-2"
+          >BRANDS</a
+        >
+        <a href="#client" class="block text-white hover:text-gray-400 px-4 py-2"
+          >CLIENT</a
+        >
+        <a
+          href="#partnership"
+          class="block text-white hover:text-gray-400 px-4 py-2">PARTNERSHIP</a
+        >
+        <a href="#career" class="block text-white hover:text-gray-400 px-4 py-2"
+          >CAREER</a
+        >
+        <a
+          href="#contact"
+          class="block text-white hover:text-gray-400 px-4 py-2 pb-4"
+          >CONTACT US</a
+        >
+      </div>
+    </nav>

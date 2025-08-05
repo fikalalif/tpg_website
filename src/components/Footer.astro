@@ -1,0 +1,74 @@
+<footer class="bg-black text-white px-6 py-12" id="contact">
+  <div
+    class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
+  >
+    {/* Kiri: Logo & Alamat */}
+    <div
+      class="flex flex-col items-center md:items-start md:flex-row space-y-4 md:space-y-0 md:space-x-4"
+    >
+      <img src="tpg-divbot2.png" alt="Logo" class="h-14" />
+      <div>
+        <h3 class="font-bold text-lg mb-1">Tempat Peraduan</h3>
+        <p class="text-sm leading-relaxed">
+          Jl. Tentara Pelajar No.15, Slerok,<br />
+          Kec. Tegal Tim., Kota Tegal, <br />
+          Jawa Tengah 52122
+        </p>
+      </div>
+    </div>
+
+    {/* Tengah: Link Navigasi */}
+    <div id="career">
+      {/* Bisa juga buat section career terpisah jika kontennya banyak */}
+      <h3 class="font-bold mb-3">OTHER LINK</h3>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <a href="/about" class="hover:text-gray-400">About us</a>
+        <a href="#career" class="hover:text-gray-400">Career</a>
+        {/* Arahkan ke section career */}
+        <a href="#brands" class="hover:text-gray-400">Brands</a>
+        <a href="#contact" class="hover:text-gray-400">Contact us</a>
+        <a href="#partnership" class="hover:text-gray-400">Partnership</a>
+      </div>
+    </div>
+
+    {/* Kanan: Kontak dan Sosial */}
+    <div class="space-y-4">
+      <div
+        class="flex flex-col bg-gray-300 text-black rounded-xl p-3 text-center font-semibold max-w-xs mx-auto md:mx-0"
+      >
+        {/* Batasi lebar di mobile */}
+        <a
+          href="https://api.whatsapp.com/send/?phone=%2B6281234537764&text&type=phone_number&app_absent=0"
+          class="text-black hover:text-zinc-700">0812-3453-7764</a
+        >
+        <a
+          href="https://api.whatsapp.com/send/?phone=%2B6281393731823&text&type=phone_number&app_absent=0"
+          class="text-black hover:text-zinc-700">0813-9373-1823</a
+        >
+        <div class="bg-gray-800 text-white mt-2 rounded-b-xl py-1">
+          INFO KEMITRAAN
+        </div>
+      </div>
+      <div class="flex justify-center space-x-4 tracking-wider mt-4">
+        <a href="https://www.instagram.com/peraduangroup/"
+          ><img
+            src="icons8-instagram-50.png"
+            alt="Instagram"
+            class="h-5 w-5"
+          /></a
+        >
+        <a href="https://www.youtube.com/@tempatperaduan7822"
+          ><img src="icons8-youtube-50.png" alt="YouTube" class="h-5 w-5" /></a
+        >
+        <a href="https://x.com/tempatperaduan"
+          ><img src="icons8-x-50.png" alt="X" class="h-5 w-5" /></a
+        >
+      </div>
+    </div>
+  </div>
+  <div
+    class="text-center text-gray-500 text-sm mt-12 border-t border-gray-700 pt-8"
+  >
+    © {new Date().getFullYear()} Tempat Peraduan Group. All rights reserved.
+  </div>
+</footer>
