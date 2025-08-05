@@ -64,8 +64,8 @@ const ModelViewer = () => {
   }, [])
 
   return (
-    <div className="absolute inset-0 flex justify-center items-center z-40 pt-52[perspective:1000px]">
-      <div ref={mountRef} className="w-3/4 sm:w-2/4 md:w-1/3 lg:w-1/4 xl:w-1/5 max-w-xs sm:max-w-sm md:max-w-md h-[800px]" />
+    <div className="absolute inset-0 flex justify-center items-center z-10 [perspective:1000px]">
+      <div ref={mountRef} className="flex justify-center items-center w-3/4 sm:w-2/4 md:w-1/3 lg:w-1/4 xl:w-1/5 max-w-xs sm:max-w-sm md:max-w-lg mt-44 h-[800px]" />
     </div>
   )
 }
