@@ -48,8 +48,8 @@ export default function SwiperCarousel() {
     <div className="bg-gradient-to-b from-black via-neutral-900 to-white text-white px-1 pt-10" id="brands">
       {/* Header */}
       <div className="flex justify-between items-center m-6 gap-3 sm:flex-row sm:m-11 sm:gap-0 sm:text-left">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">Our Brands</h2>
-        <img src="tpg-divbot.png" alt="Center Icon" className="h-12 md:h-16 lg:h-20 filter drop-shadow-2xl hover:scale-110 transition-all duration-500 animate-pulse" />
+        <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">Our Brands</h2>
+        <img src="tpg-divbot.png" alt="Center Icon" className="h-9 md:h-16 lg:h-20 filter drop-shadow-2xl hover:scale-110 transition-all duration-500 animate-pulse" />
       </div>
 
       {/* Kategori dinamis */}
