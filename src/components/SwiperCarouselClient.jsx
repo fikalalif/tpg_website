@@ -65,6 +65,7 @@ export default function SwiperCarousel() {
             delay: 3000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
+            loop:true,
           }}
           effect="coverflow"
           grabCursor
