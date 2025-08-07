@@ -1,192 +1,178 @@
----
-// Footer component for Tempat Peraduan Group
----
+<footer
+      class="bg-black text-white px-6 py-12 relative "
+      id="contact"
+    >
+      <!-- Background subtle animation -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-transparent animate-pulse opacity-30"
+      ></div>
 
-<footer class="bg-black text-white px-6 py-12 relative overflow-hidden" id="contact">
-  <!-- Background subtle animation -->
-  <div class="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-transparent animate-pulse opacity-30"></div>
-  
-  <div class="max-w-6xl mx-auto relative z-10">
-    <!-- Main content grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-      
-      <!-- Left: Logo & Address -->
-      <div class="flex flex-col items-center md:items-start space-y-4 group">
-        <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 transform transition-transform duration-300 hover:scale-105">
-          <img 
-            src="tpg-divbot2.png" 
-            alt="Tempat Peraduan Group Logo" 
-            class="h-14 w-auto transition-all duration-300 hover:brightness-110"
-          />
-          <div class="text-center md:text-left">
-            <h3 class="font-bold text-lg mb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Tempat Peraduan
+      <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Main content grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <!-- Left: Logo & Address -->
+          <div
+            class="flex flex-col items-center md:items-start space-y-4 group stagger-animation"
+          >
+            <div
+              class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 transform transition-transform duration-500 hover:scale-105 enhanced-hover"
+            >
+              <img
+                src="tpg-divbot2.png"
+                alt="Tempat Peraduan Group Logo"
+                class="h-14 w-auto transition-all duration-500 hover:brightness-110 hover:rotate-6"
+              />
+              <div class="text-center md:text-left">
+                <h3
+                  class="font-bold text-lg mb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+                >
+                  Tempat Peraduan
+                </h3>
+                <p
+                  class="text-sm leading-relaxed text-gray-300 transition-colors duration-500 group-hover:text-white"
+                >
+                  Jl. Tentara Pelajar No.15, Slerok,<br />
+                  Kec. Tegal Tim., Kota Tegal,<br />
+                  Jawa Tengah 52122
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center: Navigation Links -->
+          <div class="text-center md:text-left stagger-animation" id="career">
+            <h3
+              class="font-bold mb-4 text-lg bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+            >
+              OTHER LINKS
             </h3>
-            <p class="text-sm leading-relaxed text-gray-300 transition-colors duration-300 group-hover:text-white">
-              Jl. Tentara Pelajar No.15, Slerok,<br />
-              Kec. Tegal Tim., Kota Tegal,<br />
-              Jawa Tengah 52122
-            </p>
+            <div class="grid grid-cols-2 gap-3 text-sm max-w-xs mx-auto md:mx-0">
+              <a
+                href="/about"
+                class="text-gray-300 hover:text-white transition-all duration-500 hover:translate-x-2 hover:font-medium relative group enhanced-hover"
+              >
+                <span class="relative z-10">About us</span>
+                <span
+                  class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded"
+                ></span>
+              </a>
+              <a
+                href="#career"
+                class="text-gray-300 hover:text-white transition-all duration-500 hover:translate-x-2 hover:font-medium relative group enhanced-hover"
+              >
+                <span class="relative z-10">Career</span>
+                <span
+                  class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded"
+                ></span>
+              </a>
+              <a
+                href="#brands"
+                class="text-gray-300 hover:text-white transition-all duration-500 hover:translate-x-2 hover:font-medium relative group enhanced-hover"
+              >
+                <span class="relative z-10">Brands</span>
+                <span
+                  class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded"
+                ></span>
+              </a>
+              <a
+                href="#contact"
+                class="text-gray-300 hover:text-white transition-all duration-500 hover:translate-x-2 hover:font-medium relative group enhanced-hover"
+              >
+                <span class="relative z-10">Contact us</span>
+                <span
+                  class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded"
+                ></span>
+              </a>
+              <a
+                href="#partnership"
+                class="text-gray-300 hover:text-white transition-all duration-500 hover:translate-x-2 hover:font-medium relative group col-span-2 enhanced-hover"
+              >
+                <span class="relative z-10">Partnership</span>
+                <span
+                  class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded"
+                ></span>
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Center: Navigation Links -->
-      <div class="text-center md:text-left" id="career">
-        <h3 class="font-bold mb-4 text-lg bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-          OTHER LINKS
-        </h3>
-        <div class="grid grid-cols-2 gap-3 text-sm max-w-xs mx-auto md:mx-0">
-          <a 
-            href="/about" 
-            class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 hover:font-medium relative group"
+          <!-- Right: Contact & Social -->
+          <div
+            class="space-y-6 flex flex-col items-center md:items-center stagger-animation"
           >
-            <span class="relative z-10">About us</span>
-            <span class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </a>
-          <a 
-            href="#career" 
-            class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 hover:font-medium relative group"
-          >
-            <span class="relative z-10">Career</span>
-            <span class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </a>
-          <a 
-            href="#brands" 
-            class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 hover:font-medium relative group"
-          >
-            <span class="relative z-10">Brands</span>
-            <span class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </a>
-          <a 
-            href="#contact" 
-            class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 hover:font-medium relative group"
-          >
-            <span class="relative z-10">Contact us</span>
-            <span class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </a>
-          <a 
-            href="#partnership" 
-            class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 hover:font-medium relative group col-span-2"
-          >
-            <span class="relative z-10">Partnership</span>
-            <span class="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Right: Contact & Social -->
-      <div class="space-y-6 flex flex-col items-center md:items-center">
-        <!-- Contact Info -->
-        <div class="bg-gradient-to-br from-gray-300 to-gray-200 text-black rounded-xl p-4 text-center font-semibold max-w-xs w-full transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
-          <div class="space-y-2">
-            <a
-              href="https://api.whatsapp.com/send/?phone=%2B6281234537764&text&type=phone_number&app_absent=0"
-              class="block text-black hover:text-gray-700 transition-colors duration-300 hover:font-bold"
+            <!-- Contact Info -->
+            <div
+              class="bg-gradient-to-br from-gray-300 to-gray-200 text-black rounded-xl p-4 text-center font-semibold max-w-xs w-full transform transition-all duration-500 hover:scale-105 hover:shadow-2xl enhanced-hover"
             >
-              0812-3453-7764
-            </a>
-            <a
-              href="https://api.whatsapp.com/send/?phone=%2B6281393731823&text&type=phone_number&app_absent=0"
-              class="block text-black hover:text-gray-700 transition-colors duration-300 hover:font-bold"
-            >
-              0813-9373-1823
-            </a>
-          </div>
-          <div class="bg-gradient-to-r from-gray-800 to-gray-700 text-white mt-3 rounded-b-xl py-2 text-sm font-medium">
-            INFO KEMITRAAN
+              <div class="space-y-2">
+                <a
+                  href="https://api.whatsapp.com/send/?phone=%2B6281234537764&text&type=phone_number&app_absent=0"
+                  class="block text-black hover:text-gray-700 transition-colors duration-500 hover:font-bold enhanced-hover"
+                >
+                  0812-3453-7764
+                </a>
+                <a
+                  href="https://api.whatsapp.com/send/?phone=%2B6281393731823&text&type=phone_number&app_absent=0"
+                  class="block text-black hover:text-gray-700 transition-colors duration-500 hover:font-bold enhanced-hover"
+                >
+                  0813-9373-1823
+                </a>
+              </div>
+              <div
+                class="bg-gradient-to-r from-gray-800 to-gray-700 text-white mt-3 rounded-b-xl py-2 text-sm font-medium"
+              >
+                INFO KEMITRAAN
+              </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="flex justify-center md:justify-center space-x-6">
+              <a
+                href="https://www.instagram.com/peraduangroup/"
+                class="group transform transition-all duration-500 hover:scale-125 hover:-translate-y-2 enhanced-hover"
+                aria-label="Instagram"
+              >
+                <img
+                  src="icons8-instagram-50.png"
+                  alt="Instagram"
+                  class="h-6 w-6 transition-all duration-500 group-hover:brightness-125 group-hover:drop-shadow-lg group-hover:rotate-12"
+                />
+              </a>
+              <a
+                href="https://www.youtube.com/@tempatperaduan7822"
+                class="group transform transition-all duration-500 hover:scale-125 hover:-translate-y-2 enhanced-hover"
+                aria-label="YouTube"
+              >
+                <img
+                  src="icons8-youtube-50.png"
+                  alt="YouTube"
+                  class="h-6 w-6 transition-all duration-500 group-hover:brightness-125 group-hover:drop-shadow-lg group-hover:rotate-12"
+                />
+              </a>
+              <a
+                href="https://x.com/tempatperaduan"
+                class="group transform transition-all duration-500 hover:scale-125 hover:-translate-y-2 enhanced-hover"
+                aria-label="X (Twitter)"
+              >
+                <img
+                  src="icons8-x-50.png"
+                  alt="X"
+                  class="h-6 w-6 transition-all duration-500 group-hover:brightness-125 group-hover:drop-shadow-lg group-hover:rotate-12"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Social Media -->
-        <div class="flex justify-center md:justify-center space-x-6">
-          <a 
-            href="https://www.instagram.com/peraduangroup/"
-            class="group transform transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-            aria-label="Instagram"
-          >
-            <img
-              src="icons8-instagram-50.png"
-              alt="Instagram"
-              class="h-6 w-6 transition-all duration-300 group-hover:brightness-125 group-hover:drop-shadow-lg"
-            />
-          </a>
-          <a 
-            href="https://www.youtube.com/@tempatperaduan7822"
-            class="group transform transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-            aria-label="YouTube"
-          >
-            <img 
-              src="icons8-youtube-50.png" 
-              alt="YouTube" 
-              class="h-6 w-6 transition-all duration-300 group-hover:brightness-125 group-hover:drop-shadow-lg"
-            />
-          </a>
-          <a 
-            href="https://x.com/tempatperaduan"
-            class="group transform transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-            aria-label="X (Twitter)"
-          >
-            <img 
-              src="icons8-x-50.png" 
-              alt="X" 
-              class="h-6 w-6 transition-all duration-300 group-hover:brightness-125 group-hover:drop-shadow-lg"
-            />
-          </a>
+        <!-- Copyright -->
+        <div
+          class="text-center text-gray-400 text-sm mt-12 pt-8 border-t border-gray-700 relative stagger-animation"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"
+          ></div>
+          <p class="transition-colors duration-500 hover:text-gray-300">
+            © <span id="current-year"></span> Tempat Peraduan Group. All rights reserved.
+          </p>
         </div>
       </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center text-gray-400 text-sm mt-12 pt-8 border-t border-gray-700 relative">
-      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
-      <p class="transition-colors duration-300 hover:text-gray-300">
-        © <span id="current-year"></span> Tempat Peraduan Group. All rights reserved.
-      </p>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Set current year
-  document.getElementById('current-year')!.textContent = new Date().getFullYear().toString();
-</script>
-
-<style>
-  /* Custom animations */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  footer {
-    animation: fadeInUp 0.8s ease-out;
-  }
-
-  /* Smooth scrolling for anchor links */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Custom gradient border animation */
-  .gradient-border {
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
-  }
-
-  @keyframes gradientShift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-</style>
+    </footer>
