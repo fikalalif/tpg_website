@@ -11,6 +11,7 @@ import ModelViewer from "../components/ModelViewer";
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content={Astro.generator} />
   <script
@@ -310,7 +311,7 @@ import ModelViewer from "../components/ModelViewer";
   </style>
 </head>
 
-<body class="bg-black text-center w-full max-w-full overflow-x-hidden">
+<body class="bg-black text-center w-full max-w-full overflow-x-hidden font-monsserat">
   <!-- Loading Screen -->
   <div id="loading-screen" class="loading-screen">
     <div class="loading-particles" id="particles-container"></div>
@@ -513,6 +514,8 @@ import ModelViewer from "../components/ModelViewer";
         
         lastScrollY = currentScrollY;
       });
+
+      
 
       // Enhanced smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {

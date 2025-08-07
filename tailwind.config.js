@@ -4,6 +4,9 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
       keyframes: {
         spinY: {
           '0%': { transform: 'rotateY(0deg)' },
@@ -16,5 +19,6 @@ export default {
     },
   },
   plugins: [],
+  
 }
 
