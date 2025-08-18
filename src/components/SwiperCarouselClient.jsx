@@ -13,9 +13,6 @@ import 'swiper/css/autoplay';
 const items = [
   { img: "/UPALA.png", alt: "Logo 1", instagramUrl: "https://www.instagram.com/upalacoffee/", category: "COFFEE SHOP" },
   { img: "/Ola.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
-  { img: "/UPALA.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
-  { img: "/Ola.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
-  { img: "/UPALA.png", alt: "Logo 2", instagramUrl: "https://www.instagram.com/olacoffee.eatery//", category: "COFFEE SHOP" },
 ];
 
 const categoryLabelMap = {
