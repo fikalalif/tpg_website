@@ -392,7 +392,7 @@ import ModelViewer from "../components/ModelViewer";
           }
           
           // Trigger stagger animations
-          const staggerElements = document.querySelectorAll('.stagger-animation');
+          const staggerElements = document.querySelectorAll<HTMLElement>('.stagger-animation');
           staggerElements.forEach((el, index) => {
             setTimeout(() => {
               el.style.animationDelay = `${index * 0.1}s`;
