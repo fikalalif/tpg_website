@@ -99,16 +99,16 @@ import ModelViewer from "../components/ModelViewer";
 
     <main class="pt-1 md:pt-1">
       <div class="bg-black relative w-full h-screen stagger-animation">
-        <ModelViewer client:only="react" />
+        <ModelViewer client:visible/>
       </div>
     </main>
 
     <div class="stagger-animation">
-      <SwiperCarousel client:only="react" />
+      <SwiperCarousel client:visible/>
     </div>
 
     <div class="stagger-animation">
-      <SwiperCarouselClient client:only="react" />
+      <SwiperCarouselClient client:visible/>
     </div>
 
     <footer>

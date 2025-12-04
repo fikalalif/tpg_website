@@ -96,7 +96,13 @@ export default function SwiperCarousel() {
                 }}
                 onClick={() => handleImageClick(item.instagramUrl)}
               >
-                <img src={item.img} alt={item.alt} style={{ width: '100%', display: 'block' }} />
+                <img 
+                  src={item.img} 
+                  alt={item.alt} 
+                  loading="lazy"       // Browser hanya download jika gambar sudah dekat viewport
+                  decoding="async"     // Decode gambar di background thread (tidak bikin lag UI)
+                  style={{ width: '100%', display: 'block' }} 
+                />
               </div>
             </SwiperSlide>
           ))}
