@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useRef, useEffect } from 'react'; // Hapus useState, ganti useRef
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -33,7 +33,8 @@ const categoryLabelMap = {
 };
 
 export default function SwiperCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  // 1. Ganti useState dengan useRef untuk referensi elemen teks
+  const labelRef = useRef(null);
 
   const handleImageClick = (url) => {
     if (url) {
@@ -41,8 +42,14 @@ export default function SwiperCarousel() {
     }
   };
 
-  const currentCategory = items[activeIndex]?.category || "F&B";
-  const label = categoryLabelMap[currentCategory] || currentCategory;
+  // 2. Fungsi update teks secara langsung tanpa re-render komponen
+  const updateCategoryLabel = (realIndex) => {
+    if (labelRef.current) {
+      const currentCategory = items[realIndex]?.category || "F&B";
+      const label = categoryLabelMap[currentCategory] || currentCategory;
+      labelRef.current.innerText = label;
+    }
+  };
 
   return (
     <div className="bg-gradient-to-b from-black via-neutral-900 to-white text-white px-1 pt-10" id="brands">
@@ -52,10 +59,14 @@ export default function SwiperCarousel() {
         <img src="tpg-divbot.png" alt="Center Icon" className="h-9 md:h-16 lg:h-20 filter drop-shadow-2xl hover:scale-110 transition-all duration-500 animate-pulse" />
       </div>
 
-      {/* Kategori dinamis */}
+      {/* Kategori dinamis menggunakan REF */}
       <div className="flex justify-center mt-6 pt-2">
-        <div className="px-4 py-3 bg-white text-black text-xs sm:text-sm font-bold rounded-full shadow-md">
-          {label}
+        <div 
+          ref={labelRef} 
+          className="px-4 py-3 bg-white text-black text-xs sm:text-sm font-bold rounded-full shadow-md min-w-[120px] text-center transition-all duration-300"
+        >
+          {/* Default Value */}
+          {categoryLabelMap[items[0].category]}
         </div>
       </div>
 
@@ -69,11 +80,13 @@ export default function SwiperCarousel() {
             delay: 3000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
-            loop:true,
           }}
           effect="coverflow"
           grabCursor
           centeredSlides
+          // 3. Tambahkan observer agar Swiper lebih stabil saat ada perubahan DOM
+          observer={true} 
+          observeParents={true}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -86,9 +99,9 @@ export default function SwiperCarousel() {
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
+          // 4. Update teks via Ref di sini (TIDAK MEMICU RE-RENDER)
           onSlideChange={(swiper) => {
-            const realIndex = swiper.realIndex;
-            setActiveIndex(realIndex);
+            updateCategoryLabel(swiper.realIndex);
           }}
         >
           {items.map((item, idx) => (
@@ -99,7 +112,7 @@ export default function SwiperCarousel() {
                   borderRadius: '1rem',
                   overflow: 'hidden',
                   cursor: item.instagramUrl ? 'pointer' : 'default',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                  // Hapus properti transisi CSS yang mungkin bentrok saat drag
                 }}
                 onClick={() => handleImageClick(item.instagramUrl)}
               >
