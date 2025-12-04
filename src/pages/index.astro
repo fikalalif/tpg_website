@@ -17,147 +17,70 @@ import ModelViewer from "../components/ModelViewer";
   
   <title>Tempat Peraduan Group</title>
 
-  <script
-    type="module"
-    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-  ></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  {/* Global styles for elegant animations */}
+  {/* Global styles */}
   <style is:global>
-    /* Loading Screen Styles */
+    /* LOADING SCREEN */
     .loading-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      /* Background Radial agar fokus ke objek tengah lebih elegan */
       background: radial-gradient(circle at center, #2a2a2a 0%, #000000 100%);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
-      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 9999; /* Paling atas */
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* Saat hilang: Transparan DAN tidak bisa diklik (tembus pandang) */
     .loading-screen.fade-out {
       opacity: 0;
       visibility: hidden;
       transform: scale(1.1);
-      pointer-events: none; /* Mencegah klik saat fade out */
+      pointer-events: none !important; /* PENTING: Agar bisa klik tombol di belakangnya */
     }
 
-    /* --- CSS 3D IMAGE EFFECT (Pengganti Three.js) --- */
-    
-    /* 1. Wadah Perspektif */
+    /* CSS 3D Effect Logo */
     .logo-container-3d {
       perspective: 1000px; 
       position: relative;
       z-index: 10;
     }
 
-    /* 2. Gambar Logo Berputar */
     .spinning-3d-logo {
         image-rendering: optimizeQuality;
-        /* Shadow awal */
         filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-        /* Animasi putar */
         animation: spin3DReal 4s infinite linear;
-        /* Mengaktifkan mode 3D hardware acceleration */
         transform-style: preserve-3d;
         will-change: transform, filter;
     }
 
-    /* 3. Keyframes Animasi Putar + Pencahayaan Palsu (Fake Lighting) */
     @keyframes spin3DReal {
-      0% {
-        transform: rotateY(0deg);
-        /* Depan: Terang normal */
-        filter: brightness(100%) drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-      }
-      25% {
-        /* Samping: Sedikit gelap */
-        filter: brightness(85%) drop-shadow(5px 10px 10px rgba(0,0,0,0.4));
-      }
-      50% {
-        transform: rotateY(180deg);
-        /* Belakang: Paling gelap (efek tebal/siluet) */
-        filter: brightness(60%) drop-shadow(0 5px 5px rgba(0,0,0,0.3));
-      }
-      75% {
-        /* Samping sisi lain */
-        filter: brightness(85%) drop-shadow(-5px 10px 10px rgba(0,0,0,0.4));
-      }
-      100% {
-        transform: rotateY(360deg);
-        /* Kembali ke Depan */
-        filter: brightness(100%) drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-      }
+      0% { transform: rotateY(0deg); filter: brightness(100%) drop-shadow(0 10px 15px rgba(0,0,0,0.5)); }
+      25% { filter: brightness(85%) drop-shadow(5px 10px 10px rgba(0,0,0,0.4)); }
+      50% { transform: rotateY(180deg); filter: brightness(60%) drop-shadow(0 5px 5px rgba(0,0,0,0.3)); }
+      75% { filter: brightness(85%) drop-shadow(-5px 10px 10px rgba(0,0,0,0.4)); }
+      100% { transform: rotateY(360deg); filter: brightness(100%) drop-shadow(0 10px 15px rgba(0,0,0,0.5)); }
     }
 
-    /* Animation classes lainnya (Tetap dipertahankan) */
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 50%;
-      animation: particleFloat 4s linear infinite;
-    }
-
-    @keyframes particleFloat {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeInDown {
-      animation: fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
+    /* Utility Animations */
+    .content-hidden { opacity: 0; }
+    .content-visible { opacity: 1; transition: opacity 0.8s ease-out; }
+    .stagger-animation { opacity: 0; transform: translateY(30px); }
+    .animate-fade-in-scale { animation: fadeInScale 1s forwards; }
+    @keyframes fadeInScale { to { opacity: 1; transform: translateY(0); } }
+    
+    /* Navbar Styles (Backup jika di component tidak terload) */
     .navbar-scrolled {
       backdrop-filter: blur(25px);
-      transform: translateY(0);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    .navbar-scrolled > div {
-      opacity: 0.95 !important;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-      border-color: rgba(180, 180, 180, 0.8);
-    }
-
-    #mobile-menu:not(.js-initialized) { display: none !important; }
-    .hamburger-line { transform-origin: center; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-    .nav-link.active::after {
-      content: ""; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
-      background: linear-gradient(90deg, #ffffff, #d1d5db);
-    }
-
-    html { scroll-behavior: smooth; }
-    .mobile-nav-link:hover { transform: translateX(6px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    nav { animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1); }
-    @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-    @keyframes fade-in-scale { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-    .animate-fade-in-scale { animation: fade-in-scale 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-    footer { animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1); }
-
-    .stagger-animation { opacity: 0; transform: translateY(30px); animation: staggerFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    @keyframes staggerFadeIn { to { opacity: 1; transform: translateY(0); } }
-    .enhanced-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-    .enhanced-hover:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
     
-    .parallax-bg { transform: translateZ(0); transition: transform 0.1s ease-out; }
-    .content-hidden { opacity: 0; transform: translateY(50px); }
-    .content-visible { opacity: 1; transform: translateY(0); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
-    .page-transition { opacity: 0; transform: translateY(20px); animation: pageEnter 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    @keyframes pageEnter { to { opacity: 1; transform: translateY(0); } }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 
@@ -165,11 +88,7 @@ import ModelViewer from "../components/ModelViewer";
   
   <div id="loading-screen" class="loading-screen">
     <div class="logo-container-3d relative z-10">
-      <img
-        src="tpg_center.png"
-        alt="TPG Logo"
-        class="spinning-3d-logo h-64 md:h-80 object-contain"
-      />
+      <img src="tpg_center.png" alt="TPG Logo" class="spinning-3d-logo h-64 md:h-80 object-contain" />
     </div>
   </div>
 
@@ -178,19 +97,17 @@ import ModelViewer from "../components/ModelViewer";
       <Navbar/>
     </nav>
 
-    <main class="pt-1 md:pt-1 page-transition">
-      <div class=" bg-black relative w-full h-screen stagger-animation">
-        <div class="">
-          <ModelViewer client:only="react" />
-        </div>
+    <main class="pt-1 md:pt-1">
+      <div class="bg-black relative w-full h-screen stagger-animation">
+        <ModelViewer client:only="react" />
       </div>
     </main>
 
-    <div class="stagger-animation enhanced-hover">
+    <div class="stagger-animation">
       <SwiperCarousel client:only="react" />
     </div>
 
-    <div class="stagger-animation enhanced-hover">
+    <div class="stagger-animation">
       <SwiperCarouselClient client:only="react" />
     </div>
 
@@ -199,9 +116,138 @@ import ModelViewer from "../components/ModelViewer";
     </footer>
   </div>
 
-  <script>
-    import "../scripts/landing-logic.js";
-  </script>
+  <script is:inline>
+    // 1. LOGIKA LOADING SCREEN
+    function finishLoading(isAnimated) {
+      const loadingScreen = document.getElementById('loading-screen');
+      const mainContent = document.getElementById('main-content');
+      
+      if (loadingScreen) {
+        if (isAnimated) {
+          loadingScreen.classList.add('fade-out');
+          // Paksa hilang total setelah 1 detik
+          setTimeout(() => { loadingScreen.style.display = 'none'; }, 1000);
+        } else {
+          loadingScreen.style.display = 'none';
+        }
+      }
 
+      if (mainContent) {
+        mainContent.classList.remove('content-hidden');
+        mainContent.classList.add('content-visible');
+        
+        // Animasi elemen satu per satu
+        const elements = document.querySelectorAll('.stagger-animation');
+        elements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('animate-fade-in-scale');
+          }, isAnimated ? index * 150 : 0);
+        });
+      }
+    }
+
+    // Jalankan Loading Screen Logic
+    const hasVisited = sessionStorage.getItem('hasVisited');
+    if (hasVisited) {
+      finishLoading(false); // Instant (User lama)
+    } else {
+      // User baru: tunggu sebentar biar animasi logo tampil
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          finishLoading(true); 
+          sessionStorage.setItem('hasVisited', 'true');
+        }, 2000);
+      });
+      // Fallback jika window.load macet
+      setTimeout(() => { finishLoading(true); }, 5000);
+    }
+
+    // 2. LOGIKA NAVBAR & HAMBURGER (FIXED)
+    // Dijalankan saat script dimuat
+    (function initNavbar() {
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navbar = document.getElementById('navbar');
+
+      // Debugging: Cek di console browser (F12) apakah elemen ditemukan
+      if (!hamburgerBtn) console.error("Hamburger Button tidak ditemukan!");
+      if (!mobileMenu) console.error("Mobile Menu tidak ditemukan!");
+
+      if (hamburgerBtn && mobileMenu) {
+        // Clone button untuk menghapus event listener lama yang mungkin nyangkut
+        const newBtn = hamburgerBtn.cloneNode(true);
+        hamburgerBtn.parentNode.replaceChild(newBtn, hamburgerBtn);
+
+        // Pasang Event Listener Baru
+        newBtn.addEventListener('click', (e) => {
+          e.stopPropagation(); // Biar tidak tembus klik ke bawah
+          
+          const menuContent = mobileMenu.querySelector('.mobile-menu-content');
+          const lines = newBtn.querySelectorAll('.hamburger-line');
+          
+          const isHidden = mobileMenu.classList.contains('hidden');
+
+          if (isHidden) {
+            // -- BUKA MENU --
+            mobileMenu.classList.remove('hidden');
+            // Animasi X pada icon
+            if(lines.length >= 3) {
+                lines[0].classList.add('rotate-45', 'translate-y-1.5');
+                lines[1].classList.add('opacity-0');
+                lines[2].classList.add('-rotate-45', '-translate-y-1.5');
+            }
+            // Animasi Slide Down
+            setTimeout(() => {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-screen');
+                if(menuContent) {
+                    menuContent.classList.remove('opacity-0', 'translate-y-4');
+                    menuContent.classList.add('opacity-100', 'translate-y-0');
+                }
+            }, 10);
+
+          } else {
+            // -- TUTUP MENU --
+            // Animasi Slide Up
+            if(menuContent) {
+                menuContent.classList.remove('opacity-100', 'translate-y-0');
+                menuContent.classList.add('opacity-0', 'translate-y-4');
+            }
+            mobileMenu.classList.remove('max-h-screen');
+            mobileMenu.classList.add('max-h-0');
+            
+            // Icon Balik Normal
+            if(lines.length >= 3) {
+                lines[0].classList.remove('rotate-45', 'translate-y-1.5');
+                lines[1].classList.remove('opacity-0');
+                lines[2].classList.remove('-rotate-45', '-translate-y-1.5');
+            }
+
+            // Sembunyikan setelah animasi selesai
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 500);
+          }
+        });
+
+        // Tutup menu saat link diklik
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+             if(!mobileMenu.classList.contains('hidden')) newBtn.click();
+          });
+        });
+      }
+
+      // Navbar Scroll Effect
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar?.classList.add('navbar-scrolled');
+        } else {
+          navbar?.classList.remove('navbar-scrolled');
+        }
+      });
+
+    })();
+  </script>
 </body>
 </html>
